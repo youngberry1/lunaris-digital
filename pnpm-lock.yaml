@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      glider-js:
+        specifier: ^1.7.9
+        version: 1.7.9
       react:
         specifier: ^19.1.1
         version: 19.1.1
@@ -767,6 +770,9 @@ packages:
     resolution: {integrity: sha512-Ot5lU6jK0Eb+sszG8pciXdjMXdBJ5wODvgjR+imihTqsUWF2K6dJ9HST55lgqcs8wWcw6o6wAsUzfcYRhJPXbA==}
     engines: {node: '>=10'}
     hasBin: true
+
+  glider-js@1.7.9:
+    resolution: {integrity: sha512-22r7EZ8cd4HWsM+pvNResu1h9tvJmAlrMBO2CbdJ9mhsYF/UllJEdvq8OuJDBgYcD0aja51vzRb/TbT7BCAaig==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -1791,6 +1797,8 @@ snapshots:
       find-cache-dir: 3.3.2
       fs-extra: 11.3.2
       globby: 11.1.0
+
+  glider-js@1.7.9: {}
 
   glob-parent@5.1.2:
     dependencies:
