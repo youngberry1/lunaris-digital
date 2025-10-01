@@ -1,0 +1,386 @@
+/* src/components/CTA.css */
+
+.cta {
+   padding: var(--spacing-3xl) 0;
+   background: linear-gradient(
+      135deg,
+      var(--primary-color) 0%,
+      var(--secondary-color) 100%
+   );
+   color: white;
+   position: relative;
+   overflow: hidden;
+}
+
+.cta::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: radial-gradient(
+         circle at 20% 80%,
+         rgba(255, 255, 255, 0.1) 0%,
+         transparent 50%
+      ),
+      radial-gradient(
+         circle at 80% 20%,
+         rgba(255, 255, 255, 0.05) 0%,
+         transparent 50%
+      );
+   animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+   0%,
+   100% {
+      opacity: 1;
+   }
+   50% {
+      opacity: 0.8;
+   }
+}
+
+.cta-content {
+   text-align: center;
+   max-width: 800px;
+   margin: 0 auto;
+   position: relative;
+   z-index: 2;
+   opacity: 0;
+   transform: translateY(30px);
+   transition: all var(--transition-slow);
+}
+
+.cta.animate-in .cta-content {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.cta-title {
+   font-size: clamp(2rem, 5vw, 3rem);
+   font-weight: 700;
+   line-height: 1.1;
+   margin-bottom: var(--spacing-lg);
+   color: white;
+   opacity: 0;
+   transform: translateY(20px);
+   animation: slideUp 0.8s ease 0.3s forwards;
+}
+
+@keyframes slideUp {
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.cta-description {
+   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+   line-height: 1.6;
+   margin-bottom: var(--spacing-2xl);
+   color: rgba(255, 255, 255, 0.9);
+   opacity: 0;
+   transform: translateY(20px);
+   animation: slideUp 0.8s ease 0.6s forwards;
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.cta-actions {
+   display: flex;
+   gap: var(--spacing-md);
+   justify-content: center;
+   flex-wrap: wrap;
+   opacity: 0;
+   transform: translateY(20px);
+   animation: slideUp 0.8s ease 0.9s forwards;
+}
+
+.cta-btn {
+   padding: var(--spacing-md) var(--spacing-xl);
+   font-size: var(--font-size-lg);
+   font-weight: 600;
+   border-radius: var(--radius-xl);
+   transition: all var(--transition-normal);
+   display: flex;
+   align-items: center;
+   gap: var(--spacing-sm);
+   min-width: 160px;
+   justify-content: center;
+   position: relative;
+   overflow: hidden;
+}
+
+.cta-btn.primary {
+   background: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(10px);
+   border: 2px solid rgba(255, 255, 255, 0.3);
+   color: white;
+}
+
+.cta-btn.primary::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+   );
+   transition: left var(--transition-slow);
+}
+
+.cta-btn.primary:hover::before {
+   left: 100%;
+}
+
+.cta-btn.primary:hover {
+   background: rgba(255, 255, 255, 0.3);
+   border-color: rgba(255, 255, 255, 0.5);
+   transform: translateY(-3px);
+   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.cta-btn.secondary {
+   background: transparent;
+   border: 2px solid rgba(255, 255, 255, 0.3);
+   color: white;
+}
+
+.cta-btn.secondary:hover {
+   background: rgba(255, 255, 255, 0.1);
+   border-color: rgba(255, 255, 255, 0.5);
+   transform: translateY(-3px);
+   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.cta-btn i {
+   font-size: 0.9em;
+   transition: transform var(--transition-normal);
+}
+
+.cta-btn:hover i {
+   transform: translateX(3px);
+}
+
+/* Animated Background Elements */
+.cta-background {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   overflow: hidden;
+   z-index: 1;
+}
+
+.cta-shape {
+   position: absolute;
+   border-radius: 50%;
+   background: rgba(255, 255, 255, 0.1);
+   animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+   width: 120px;
+   height: 120px;
+   top: 10%;
+   left: 5%;
+   animation-delay: 0s;
+}
+
+.shape-2 {
+   width: 80px;
+   height: 80px;
+   top: 70%;
+   right: 10%;
+   animation-delay: 2s;
+}
+
+.shape-3 {
+   width: 100px;
+   height: 100px;
+   bottom: 10%;
+   left: 15%;
+   animation-delay: 4s;
+}
+
+.shape-4 {
+   width: 60px;
+   height: 60px;
+   top: 20%;
+   right: 15%;
+   animation-delay: 1s;
+}
+
+@keyframes float {
+   0%,
+   100% {
+      transform: translateY(0) rotate(0deg);
+   }
+   50% {
+      transform: translateY(-20px) rotate(180deg);
+   }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+   .cta {
+      padding: var(--spacing-2xl) 0;
+      text-align: center;
+   }
+
+   .cta-title {
+      font-size: clamp(1.75rem, 8vw, 2.5rem);
+      margin-bottom: var(--spacing-md);
+   }
+
+   .cta-description {
+      font-size: clamp(1rem, 4vw, 1.25rem);
+      margin-bottom: var(--spacing-xl);
+   }
+
+   .cta-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+   }
+
+   .cta-btn {
+      width: 100%;
+      max-width: 280px;
+   }
+
+   .cta-btn:hover {
+      transform: none; /* Remove hover effects on mobile */
+   }
+
+   .cta-btn:hover i {
+      transform: none; /* Remove icon animation on mobile */
+   }
+
+   /* Reduce floating shapes on mobile for performance */
+   .shape-3,
+   .shape-4 {
+      display: none;
+   }
+
+   .shape-1 {
+      width: 80px;
+      height: 80px;
+   }
+
+   .shape-2 {
+      width: 60px;
+      height: 60px;
+   }
+}
+
+@media (max-width: 480px) {
+   .cta {
+      padding: var(--spacing-xl) 0;
+   }
+
+   .cta-title {
+      font-size: clamp(1.5rem, 10vw, 2rem);
+   }
+
+   .cta-description {
+      font-size: var(--font-size-base);
+   }
+
+   .cta-btn {
+      padding: var(--spacing-md);
+      font-size: var(--font-size-base);
+   }
+
+   /* Remove all floating shapes on very small screens */
+   .cta-shape {
+      display: none;
+   }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+   .cta-title {
+      font-size: clamp(1.875rem, 6vw, 2.5rem);
+   }
+
+   .cta-description {
+      font-size: clamp(1.125rem, 3vw, 1.375rem);
+   }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+   .cta::before,
+   .cta-content,
+   .cta-title,
+   .cta-description,
+   .cta-actions,
+   .cta-shape,
+   .cta-btn i {
+      animation: none;
+      transition: none;
+   }
+
+   .cta-content,
+   .cta-title,
+   .cta-description,
+   .cta-actions {
+      opacity: 1;
+      transform: none;
+   }
+
+   .cta-btn:hover {
+      transform: none;
+   }
+
+   .cta-btn:hover i {
+      transform: none;
+   }
+
+   .cta-shape {
+      animation: none;
+      opacity: 0.3;
+   }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+   .cta {
+      background: linear-gradient(135deg, #000000 0%, #333333 100%);
+   }
+
+   .cta-btn.primary {
+      background: #000000;
+      border: 2px solid #ffffff;
+   }
+
+   .cta-btn.secondary {
+      background: transparent;
+      border: 2px solid #ffffff;
+   }
+
+   .cta-shape {
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid #ffffff;
+   }
+}
+
+/* Dark theme adjustments - ensure gradient works in dark mode */
+[data-theme='dark'] .cta {
+   background: linear-gradient(
+      135deg,
+      var(--primary-color) 0%,
+      var(--secondary-color) 100%
+   );
+}
